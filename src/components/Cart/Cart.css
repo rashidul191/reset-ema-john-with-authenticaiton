@@ -1,0 +1,32 @@
+.cart-style {
+  padding-left: 20px;
+}
+
+.cart-style h3 {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+
+.cart-btn{
+    margin: 57px 0px;
+}
+
+.btn{
+  /* display: inline; */
+  border: none;
+  color: white;
+  width: 232px;
+  height: 48px;
+  border-radius:4px ;
+
+  
+}
+
+.clear-btn{
+    background-color: #FF3030;
+    margin-bottom: 16px;
+}
+.remove-btn{
+    background-color: #FF9900;
+}
