@@ -1,9 +1,11 @@
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./Cart.css";
 
 const Cart = (props) => {
   const { cart } = props;
-    // console.log(cart)
+  console.log(props);
 
   let total = 0;
   let shipping = 0;
@@ -15,7 +17,7 @@ const Cart = (props) => {
     quantity += product.quantity;
   }
 
-  const tax = total * 10 / 100;
+  const tax = (total * 10) / 100;
   const grandTotal = total + shipping + tax;
   return (
     <div className="cart-style">
@@ -27,14 +29,20 @@ const Cart = (props) => {
         <p>Tax: $ {tax.toFixed(2)}</p>
         <h4>Grand Total: $ {grandTotal.toFixed(2)}</h4>
       </div>
+
       <div className="cart-btn">
         <button className="btn clear-btn">
           <p>Clear Cart</p>
+          <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
         </button>
-        {/* <br /> */}
-        <button className="btn remove-btn">
+
+        {/* <button className="btn remove-btn">
           <p>Remove Order</p>
-        </button>
+          <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+        </button> */}
+
+        {/* button */}
+        <p>{props.children}</p>
       </div>
     </div>
   );
