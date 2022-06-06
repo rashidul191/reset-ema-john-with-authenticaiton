@@ -1,10 +1,21 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 import logo from "../../images/Logo.svg";
 import CustomLink from "../CustomLink/CustomLink";
 import "./Header.css";
 
 const Header = () => {
+
+  // optional
+  const [user] = useAuthState(auth)
+
+  const handleSignOut = () =>{
+    signOut(auth)
+  }
+
   return (
     <div>
       <nav>
@@ -32,6 +43,8 @@ const Header = () => {
           <CustomLink to="/orders">Orders</CustomLink>
           <CustomLink to="/inventory">Inventory</CustomLink>
           <CustomLink to="/about">About</CustomLink>
+          {user?.uid && <span className="text-white ms-4">{user?.email}</span>}
+        {user?.uid ? <button className="ms-4 btn btn-danger" onClick={handleSignOut}>Sign Out</button> :<CustomLink to="/login">Login</CustomLink>}
         </div>
       </nav>
     </div>
